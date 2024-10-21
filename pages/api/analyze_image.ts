@@ -36,7 +36,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     // コピー先のディレクトリを作成する
-    const uploadDir = path.join(process.cwd(), 'uploads');
+    // const uploadDir = path.join(process.cwd(), 'uploads');
+    const uploadDir = '/tmp';
+
     if (!fs.existsSync(uploadDir)) {
       fs.mkdirSync(uploadDir, { recursive: true }); // ディレクトリがない場合は再帰的に作成
     }
