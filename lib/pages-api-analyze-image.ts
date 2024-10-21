@@ -21,7 +21,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(500).json({ error: 'ファイルのアップロードに失敗しました' })
     }
 
-    const file = files.image as formidable.File
+    const file = Array.isArray(files.image) ? files.image[0] : files.image;
+    if (!file) {
+      return res.status(400).json({ error: '画像ファイルが選択されていません' });
+    }
     const imageBuffer = fs.readFileSync(file.filepath)
 
     try {
@@ -30,9 +33,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       // Upload the file
       const uploadResponse = await fileManager.uploadFile(file.originalFilename || 'uploaded_image', {
-        mimeType: file.mimetype || 'image/jpeg',
+        mimeType: file.mimetype || 'image/png',
         displayName: "Uploaded health card image",
-      }, imageBuffer)
+      })
 
       // Initialize GoogleGenerativeAI with your API_KEY
       const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY as string)
