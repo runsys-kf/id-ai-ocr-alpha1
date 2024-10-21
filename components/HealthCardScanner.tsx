@@ -2,10 +2,10 @@
 
 import { useState } from 'react'
 import axios from 'axios'
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "./ui/button"
+import { Input } from "./ui/input"
+import { Label } from "./ui/label"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card"
 
 export default function HealthCardScanner() {
   const [file, setFile] = useState<File | null>(null)
