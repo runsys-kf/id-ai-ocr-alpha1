@@ -27,7 +27,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     try {
       // Initialize GoogleAIFileManager with your API_KEY
-      const fileManager = new GoogleAIFileManager(process.env.GEMINI_API_KEY as string)
+      const fileManager = new GoogleAIFileManager(process.env.NEXT_PUBLIC_GOOGLE_API_KEY as string)
 
       // Upload the file
       const uploadResponse = await fileManager.uploadFile(file.originalFilename || 'uploaded_image', {
@@ -36,7 +36,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       })
 
       // Initialize GoogleGenerativeAI with your API_KEY
-      const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY as string)
+      const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GOOGLE_API_KEY as string)
 
       const model = genAI.getGenerativeModel({
         model: "gemini-1.5-pro",
