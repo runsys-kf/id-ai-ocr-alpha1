@@ -53,7 +53,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     fs.copyFileSync(tempPath, targetPath);
 
     // コピーしたファイルを読み込む
-    const imageBuffer = fs.readFileSync(targetPath);
+    // const imageBuffer = fs.readFileSync(targetPath);
 
     // GoogleAIFileManager の初期化
     const fileManager = new GoogleAIFileManager(process.env.NEXT_PUBLIC_GOOGLE_API_KEY as string);
