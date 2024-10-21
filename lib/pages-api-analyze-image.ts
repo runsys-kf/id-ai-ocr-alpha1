@@ -25,7 +25,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (!file) {
       return res.status(400).json({ error: '画像ファイルが選択されていません' });
     }
-    const imageBuffer = fs.readFileSync(file.filepath)
 
     try {
       // Initialize GoogleAIFileManager with your API_KEY
