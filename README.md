@@ -20,7 +20,9 @@
 ## API
 Google Generative AI
 - [Google Generative AI ドキュメント](https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/inference?hl=ja)
-
+Model
+- Gemini-1.5-pro
+- 
 ## プロンプト
 ```
     ### 命令
